@@ -1,0 +1,57 @@
+{{- $description := .Description -}}
+{{- if not $description -}}
+  {{- $description = .Summary | plainify -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- $description = .Site.Params.description -}}
+{{- end -}}
+
+{{- if and .IsPage (eq .Section "posts") -}}
+  {{- $articleID := printf "%s#article" .Permalink -}}
+
+  {{- $article := dict
+      "@type" "Article"
+      "@id" $articleID
+      "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+      "headline" .Title
+      "description" $description
+      "datePublished" .Date
+      "dateModified" .Lastmod
+      "author" (dict
+        "@type" "Person"
+        "name" .Params.author
+      )
+      "inLanguage" .Site.Language.Locale
+  -}}
+
+  {{- $breadcrumb := dict
+      "@type" "BreadcrumbList"
+      "itemListElement" (slice
+        (dict
+          "@type" "ListItem"
+          "position" 1
+          "name" "خانه"
+          "item" .Site.Home.Permalink
+        )
+        (dict
+          "@type" "ListItem"
+          "position" 2
+          "name" "مقالات"
+          "item" (absURL "posts/")
+        )
+        (dict
+          "@type" "ListItem"
+          "position" 3
+          "name" .Title
+          "item" .Permalink
+        )
+      )
+  -}}
+
+  {{- $graph := dict
+      "@context" "https://schema.org"
+      "@graph" (slice $article $breadcrumb)
+  -}}
+
+{{ printf `<script type="application/ld+json">%s</script>` ($graph | jsonify) | safeHTML }}
+{{- end -}}

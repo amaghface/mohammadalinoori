@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale }}" dir="{{ or .Site.Language.Direction "ltr" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <header>
+    <nav aria-label="ناوبری اصلی">
+      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      <a href="{{ "posts/" | relURL }}">مقالات</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+baseURL: https://amaghface.github.io/mohammadalinoori/
+title: محمدعلی نوری
+
+defaultContentLanguage: fa
+
+languages:
+  fa:
+    label: فارسی
+    locale: fa-IR
+    direction: rtl
+    title: محمدعلی نوری
+    weight: 1
+
+taxonomies:
+  category: categories
+  tag: tags
+
+pagination:
+  pagerSize: 10
+  path: page
+
+permalinks:
+  page:
+    posts: /posts/:slug/
+  section:
+    posts: /posts/
+
+enableRobotsTXT: true
+
+timeZone: Asia/Tehran
+
+outputs:
+  home:
+    - html
+    - rss
+  page:
+    - html
+  section:
+    - html
+    - rss
+  taxonomy:
+    - html
+  term:
+    - html
+
+params:
+  description: "وبلاگ محمدعلی نوری؛ نوشته‌ها، یادداشت‌ها و مطالب آموزشی."
+  author:
+    name: "محمدعلی نوری"

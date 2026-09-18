@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <section>
+    <header>
+      <h1>{{ .Title }}</h1>
+
+      {{ with .Content }}
+        <div>
+          {{ . }}
+        </div>
+      {{ end }}
+    </header>
+
+    {{ if .Pages }}
+      <ul>
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+
+            {{ with .Date }}
+              <time datetime="{{ .Format "2006-01-02" }}">
+                {{ .Format "2006/01/02" }}
+              </time>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>موردی برای نمایش وجود ندارد.</p>
+    {{ end }}
+  </section>
+{{ end }}
