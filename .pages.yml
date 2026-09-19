@@ -50,6 +50,18 @@ content:
         required: true
         options:
           maxlength: 120
+      - name: contentType
+        label: نوع مطلب
+        type: select
+        required: true
+        options:
+          values:
+            - name: poems
+              label: شعر
+            - name: notes
+              label: یادداشت
+            - name: stories
+              label: داستان
 
       - name: slug
         label: نامک URL
