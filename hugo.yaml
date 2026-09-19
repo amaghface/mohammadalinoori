@@ -1,5 +1,5 @@
 baseURL: https://amaghface.github.io/mohammadalinoori/
-title: محمدعلی نوری
+title: محمد علی‌نوری
 
 defaultContentLanguage: fa
 
@@ -8,7 +8,7 @@ languages:
     label: فارسی
     locale: fa-IR
     direction: rtl
-    title: محمدعلی نوری
+    title: محمد علی‌نوری
     weight: 1
 
 taxonomies:
@@ -42,7 +42,7 @@ outputs:
     - html
 
 params:
-  description: "وبلاگ محمدعلی نوری؛ نوشته‌ها، یادداشت‌ها و مطالب آموزشی."
+  description: "وبسایت محمد علی‌نوری؛ شعرها، داستان‌ها و یادداشت‌ها ."
   author:
-    name: "محمدعلی نوری"
+    name: "محمد علی‌نوری"
   homePosts: 6
