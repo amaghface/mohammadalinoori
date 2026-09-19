@@ -50,6 +50,7 @@ content:
         required: true
         options:
           maxlength: 120
+          
       - name: contentType
         label: نوع مطلب
         type: select
