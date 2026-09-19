@@ -133,7 +133,7 @@ content:
         label: نویسنده
         type: string
         required: true
-        default: "محمدعلی نوری"
+        default: "محمد علی‌نوری"
 
       - name: categories
         label: دسته‌بندی‌ها
