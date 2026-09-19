@@ -1,121 +1,93 @@
-```html
 {{ define "main" }}
 
-  <section aria-labelledby="posts-title">
+<section aria-labelledby="posts-title">
 
-    <header class="page-header">
-      <h1 id="posts-title">{{ .Title }}</h1>
+  <header class="page-header">
+    <h1 id="posts-title">{{ .Title }}</h1>
 
-      {{ with .Content }}
-        <div>
-          {{ . }}
-        </div>
-      {{ end }}
-    </header>
+    {{ with .Content }}
+      <div>
+        {{ . }}
+      </div>
+    {{ end }}
+  </header>
 
-    {{ $posts := .RegularPagesRecursive }}
-    {{ $posts = $posts.ByDate.Reverse }}
+  {{ $posts := .RegularPages }}
+  {{ $posts = $posts.ByDate.Reverse }}
 
-    {{ $paginator := .Paginate $posts 10 }}
+  {{ if $posts }}
 
-    {{ if $paginator.Pages }}
+    <div class="post-list">
 
-      <div class="post-list">
+      {{ range $posts }}
 
-        {{ range $paginator.Pages }}
+        {{ $typeLabel := "" }}
 
-          {{ $typeLabel := "" }}
-
-          {{ with .Params.contentType }}
-            {{ if eq . "poems" }}
-              {{ $typeLabel = "شعر" }}
-            {{ else if eq . "notes" }}
-              {{ $typeLabel = "یادداشت" }}
-            {{ else if eq . "stories" }}
-              {{ $typeLabel = "داستان" }}
-            {{ end }}
+        {{ with .Params.contentType }}
+          {{ if eq . "poems" }}
+            {{ $typeLabel = "شعر" }}
+          {{ else if eq . "notes" }}
+            {{ $typeLabel = "یادداشت" }}
+          {{ else if eq . "stories" }}
+            {{ $typeLabel = "داستان" }}
           {{ end }}
-
-          <article class="post-item">
-
-            {{ with .Params.cover }}
-              <a
-                class="post-item-media"
-                href="{{ $.RelPermalink }}"
-                aria-label="مشاهده {{ $.Title }}"
-              >
-                <img
-                  src="{{ . | relURL }}"
-                  alt="{{ or $.Params.cover_alt $.Title }}"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </a>
-            {{ end }}
-
-            <div>
-
-              {{ with $typeLabel }}
-                <div class="post-card-type">
-                  {{ . }}
-                </div>
-              {{ end }}
-
-              {{ with .Date }}
-                <p class="post-item-date">
-                  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-                    {{ partial "functions/persian-date.html" . }}
-                  </time>
-                </p>
-              {{ end }}
-
-              <h2>
-                <a href="{{ .RelPermalink }}">
-                  {{ .Title }}
-                </a>
-              </h2>
-
-              {{ with .Summary }}
-                <p class="post-item-summary">
-                  {{ . | plainify }}
-                </p>
-              {{ end }}
-
-            </div>
-
-          </article>
-
         {{ end }}
 
-      </div>
+        <article class="post-item">
 
-      <nav class="pagination" aria-label="صفحه‌بندی">
-
-        <div>
-          {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}">
-              نوشته‌های جدیدتر
+          {{ with .Params.cover }}
+            <a class="post-item-media" href="{{ $.RelPermalink }}">
+              <img
+                src="{{ . | relURL }}"
+                alt="{{ or $.Params.cover_alt $.Title }}"
+                loading="lazy"
+                decoding="async"
+              >
             </a>
           {{ end }}
-        </div>
 
-        <div>
-          {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}">
-              نوشته‌های قدیمی‌تر
-            </a>
-          {{ end }}
-        </div>
+          <div>
 
-      </nav>
+            {{ with $typeLabel }}
+              <div class="post-card-type">
+                {{ . }}
+              </div>
+            {{ end }}
 
-    {{ else }}
+            {{ with .Date }}
+              <p class="post-item-date">
+                <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+                  {{ partial "functions/persian-date.html" . }}
+                </time>
+              </p>
+            {{ end }}
 
-      <p>هنوز نوشته‌ای منتشر نشده است.</p>
+            <h2>
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
+            </h2>
 
-    {{ end }}
+            {{ with .Summary }}
+              <p class="post-item-summary">
+                {{ . | plainify }}
+              </p>
+            {{ end }}
 
-  </section>
+          </div>
+
+        </article>
+
+      {{ end }}
+
+    </div>
+
+  {{ else }}
+
+    <p>هنوز نوشته‌ای منتشر نشده است.</p>
+
+  {{ end }}
+
+</section>
 
 {{ end }}
-```
