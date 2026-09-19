@@ -8,5 +8,7 @@ date: 2026-09-19T21:04:00Z
 lastmod: 2026-09-19T21:04:00Z
 draft: true
 author: محمدعلی نوری
+font: estedad
+textSize: large
 ---
 این فقط یک شعر آزمایشی برای بررسی ساختار CMS است
