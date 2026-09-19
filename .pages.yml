@@ -22,7 +22,7 @@ content:
     subfolders: true
     exclude:
       - "_index.md"
-    filename: "{fields.slug}/index.md"
+    filename: "{fields.contentType}/{fields.slug}/index.md"
 
     view:
       layout: list
