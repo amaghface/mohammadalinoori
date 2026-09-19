@@ -2,7 +2,7 @@
 title: تست
 slug: cms-test
 description: این یک مقاله آزمایشی برای تست عملکرد Pages CMS است.
-summary: تست ساخت و انتشار محتوا از طریق Pages CMS.
+summary: تست ویرایش مقاله از طریق Pages CMS.
 date: 2026-09-19T14:38
 lastmod: 2026-09-19T14:38
 draft: true
