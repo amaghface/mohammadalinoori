@@ -1,0 +1,157 @@
+media:
+
+* name: images
+  label: تصاویر
+  input: static/media/posts
+  output: /mohammadalinoori/media/posts
+  categories:
+
+  * image
+    extensions:
+  * jpg
+  * jpeg
+  * png
+  * webp
+  * avif
+    rename: safe
+
+content:
+
+* name: posts
+  label: مقالات
+  type: collection
+  path: content/posts
+  format: yaml-frontmatter
+  subfolders: true
+  exclude:
+
+  * "_index.md"
+    filename: "{fields.slug}/index.md"
+
+  view:
+  layout: list
+  primary: title
+  fields:
+  - title
+  - date
+  - categories
+  - tags
+  - draft
+  sort:
+  - date
+  default:
+  sort: date
+  order: desc
+  search:
+  - title
+  - description
+  - tags
+
+  fields:
+
+  * name: title
+    label: عنوان
+    type: string
+    required: true
+    options:
+    maxlength: 120
+
+  * name: slug
+    label: نامک URL
+    type: string
+    required: true
+    description: "برای URL از حروف انگلیسی کوچک، عدد و خط تیره استفاده کن."
+    pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    options:
+    minlength: 3
+    maxlength: 80
+
+  * name: description
+    label: توضیحات SEO
+    type: text
+    required: true
+    options:
+    maxlength: 160
+
+  * name: summary
+    label: خلاصه
+    type: text
+    options:
+    maxlength: 280
+
+  * name: date
+    label: تاریخ انتشار
+    type: date
+    required: true
+    options:
+    time: true
+    format: "yyyy-MM-dd'T'HH:mm"
+
+  * name: lastmod
+    label: تاریخ آخرین ویرایش
+    type: date
+    options:
+    time: true
+    format: "yyyy-MM-dd'T'HH:mm"
+
+  * name: draft
+    label: پیش‌نویس
+    type: boolean
+    default: true
+
+  * name: author
+    label: نویسنده
+    type: string
+    required: true
+    default: "محمدعلی نوری"
+
+  * name: categories
+    label: دسته‌بندی‌ها
+    type: string
+    list: true
+
+  * name: tags
+    label: تگ‌ها
+    type: string
+    list: true
+
+  * name: cover
+    label: تصویر کاور
+    type: image
+    options:
+    media: images
+    path: media/posts
+    extensions:
+    - jpg
+    - jpeg
+    - png
+    - webp
+    - avif
+    rename: safe
+
+  * name: cover_alt
+    label: متن جایگزین تصویر کاور
+    type: string
+    description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
+    options:
+    maxlength: 160
+
+  * name: body
+    label: متن مقاله
+    type: rich-text
+    options:
+    format: markdown
+    media: images
+    path: media/posts
+    extensions:
+    - jpg
+    - jpeg
+    - png
+    - webp
+    - avif
+    rename: safe
+    switcher: true
+
+settings:
+content:
+merge: true
