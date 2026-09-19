@@ -63,7 +63,30 @@ content:
               label: یادداشت
             - name: stories
               label: داستان
-
+      - name: font
+        label: فونت مطلب
+        type: select
+        required: true
+        options:
+          values:
+            - name: vazirmatn
+              label: وزیرمتن
+            - name: estedad
+              label: استعداد
+            - name: sahel
+              label: ساحل
+      - name: textSize
+        label: اندازه متن
+        type: select
+        required: true
+        options:
+          values:
+            - name: normal
+              label: معمولی
+            - name: large
+              label: بزرگ
+            - name: xlarge
+              label: خیلی بزرگ
       - name: slug
         label: نامک URL
         type: string
