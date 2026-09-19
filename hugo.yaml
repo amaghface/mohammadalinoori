@@ -21,9 +21,7 @@ pagination:
 
 permalinks:
   page:
-    posts: /:sectionslugs[last]/:slug/
-  section:
-    posts: /posts/
+    posts: /:sections[last]/:slug/
 
 enableRobotsTXT: true
 
