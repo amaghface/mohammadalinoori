@@ -12,6 +12,10 @@ draft: false
 author: محمد علی‌نوری
 tags:
   - شعر
+  - ادبیات
+  - محمد علی‌نوری
+cover: /mohammadalinoori/media/posts/man-alonecowyfy91ud.jpg
+cover_alt: Alone men
 ---
 ...
 
@@ -55,4 +59,3 @@ tags:
 
 **خیالت را کنار تخت بگذاری**
 
-  
