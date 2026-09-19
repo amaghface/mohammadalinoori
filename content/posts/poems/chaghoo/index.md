@@ -7,7 +7,7 @@ slug: Chaghoo
 description: شعر بعدی چشم‌های تو یک چاقوست» از محمد علی‌نوری»
 date: 2026-09-20T02:04:00Z
 lastmod: 2026-09-20T02:04:00Z
-draft: true
+draft: false
 author: محمد علی‌نوری
 tags:
   - شعر
@@ -80,4 +80,3 @@ tags:
 
 **"محمد علی نوری"**
 
-  
