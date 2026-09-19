@@ -39,9 +39,14 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="fa_IR">
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
+
+{{- with .Params.cover -}}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{- end -}}
 
 {{- if and .IsPage (eq .Section "posts") -}}
   {{- with .Date -}}

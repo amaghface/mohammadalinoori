@@ -7,11 +7,17 @@
 {{- end -}}
 
 {{- if and .IsPage (eq .Section "posts") -}}
-  {{- $articleID := printf "%s#article" .Permalink -}}
+
+  {{- $contentType := .Params.contentType -}}
+
+  {{- $schemaType := "Article" -}}
+  {{- if or (eq $contentType "poems") (eq $contentType "stories") -}}
+    {{- $schemaType = "CreativeWork" -}}
+  {{- end -}}
 
   {{- $article := dict
-      "@type" "Article"
-      "@id" $articleID
+      "@type" $schemaType
+      "@id" (printf "%s#article" .Permalink)
       "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
       "headline" .Title
       "description" $description
@@ -19,7 +25,7 @@
       "dateModified" .Lastmod
       "author" (dict
         "@type" "Person"
-        "name" .Params.author
+        "name" "محمد علی‌نوری"
       )
       "inLanguage" .Site.Language.Locale
   -}}
@@ -36,7 +42,7 @@
         (dict
           "@type" "ListItem"
           "position" 2
-          "name" "مقالات"
+          "name" "نوشته‌ها"
           "item" (absURL "posts/")
         )
         (dict
@@ -53,5 +59,6 @@
       "@graph" (slice $article $breadcrumb)
   -}}
 
-{{ printf `<script type="application/ld+json">%s</script>` ($graph | jsonify) | safeHTML }}
+  {{ printf `<script type="application/ld+json">%s</script>` ($graph | jsonify) | safeHTML }}
+
 {{- end -}}
