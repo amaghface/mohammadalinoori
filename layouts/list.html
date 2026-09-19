@@ -1,7 +1,10 @@
+```html
 {{ define "main" }}
-  <section>
-    <header>
-      <h1>{{ .Title }}</h1>
+
+  <section aria-labelledby="posts-title">
+
+    <header class="page-header">
+      <h1 id="posts-title">{{ .Title }}</h1>
 
       {{ with .Content }}
         <div>
@@ -10,22 +13,109 @@
       {{ end }}
     </header>
 
-    {{ if .Pages }}
-      <ul>
-        {{ range .Pages }}
-          <li>
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{ $posts := .RegularPagesRecursive }}
+    {{ $posts = $posts.ByDate.Reverse }}
 
-            {{ with .Date }}
-              <time datetime="{{ .Format "2006-01-02" }}">
-                {{ .Format "2006/01/02" }}
-              </time>
+    {{ $paginator := .Paginate $posts 10 }}
+
+    {{ if $paginator.Pages }}
+
+      <div class="post-list">
+
+        {{ range $paginator.Pages }}
+
+          {{ $typeLabel := "" }}
+
+          {{ with .Params.contentType }}
+            {{ if eq . "poems" }}
+              {{ $typeLabel = "شعر" }}
+            {{ else if eq . "notes" }}
+              {{ $typeLabel = "یادداشت" }}
+            {{ else if eq . "stories" }}
+              {{ $typeLabel = "داستان" }}
             {{ end }}
-          </li>
+          {{ end }}
+
+          <article class="post-item">
+
+            {{ with .Params.cover }}
+              <a
+                class="post-item-media"
+                href="{{ $.RelPermalink }}"
+                aria-label="مشاهده {{ $.Title }}"
+              >
+                <img
+                  src="{{ . | relURL }}"
+                  alt="{{ or $.Params.cover_alt $.Title }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </a>
+            {{ end }}
+
+            <div>
+
+              {{ with $typeLabel }}
+                <div class="post-card-type">
+                  {{ . }}
+                </div>
+              {{ end }}
+
+              {{ with .Date }}
+                <p class="post-item-date">
+                  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ partial "functions/persian-date.html" . }}
+                  </time>
+                </p>
+              {{ end }}
+
+              <h2>
+                <a href="{{ .RelPermalink }}">
+                  {{ .Title }}
+                </a>
+              </h2>
+
+              {{ with .Summary }}
+                <p class="post-item-summary">
+                  {{ . | plainify }}
+                </p>
+              {{ end }}
+
+            </div>
+
+          </article>
+
         {{ end }}
-      </ul>
+
+      </div>
+
+      <nav class="pagination" aria-label="صفحه‌بندی">
+
+        <div>
+          {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}">
+              نوشته‌های جدیدتر
+            </a>
+          {{ end }}
+        </div>
+
+        <div>
+          {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}">
+              نوشته‌های قدیمی‌تر
+            </a>
+          {{ end }}
+        </div>
+
+      </nav>
+
     {{ else }}
-      <p>موردی برای نمایش وجود ندارد.</p>
+
+      <p>هنوز نوشته‌ای منتشر نشده است.</p>
+
     {{ end }}
+
   </section>
+
 {{ end }}
+```

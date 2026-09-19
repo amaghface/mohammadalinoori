@@ -15,7 +15,7 @@ media:
 
 content:
   - name: posts
-    label: مقالات
+    label: نوشته‌ها
     type: collection
     path: content/posts
     format: yaml-frontmatter
@@ -141,7 +141,7 @@ content:
         list: true
 
       - name: tags
-        label: تگ‌ها
+        label: برچسب‌ها
         type: string
         list: true
 
@@ -167,7 +167,7 @@ content:
           maxlength: 160
 
       - name: body
-        label: متن مقاله
+        label: متن نوشته
         type: rich-text
         options:
           format: markdown

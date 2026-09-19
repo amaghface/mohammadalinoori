@@ -1,0 +1,3 @@
+{{- $jalali := partial "functions/jalali-date.html" . -}}
+{{- $text := printf "%d %s %d" $jalali.day $jalali.monthName $jalali.year -}}
+{{- partial "functions/persian-digits.html" $text -}}

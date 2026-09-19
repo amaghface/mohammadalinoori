@@ -1,0 +1,21 @@
+<nav class="site-nav" aria-label="ناوبری اصلی">
+  <div class="site-nav-desktop">
+    <a href="{{ .Site.Home.RelPermalink }}">خانه</a>
+    <a href="{{ "poems/" | relURL }}">اشعار</a>
+    <a href="{{ "notes/" | relURL }}">یادداشت‌ها</a>
+    <a href="{{ "stories/" | relURL }}">داستان‌ها</a>
+    <a href="{{ "about/" | relURL }}">درباره من</a>
+  </div>
+
+  <details class="site-nav-mobile">
+    <summary>منو</summary>
+
+    <div class="site-nav-mobile-links">
+      <a href="{{ .Site.Home.RelPermalink }}">خانه</a>
+      <a href="{{ "poems/" | relURL }}">اشعار</a>
+      <a href="{{ "notes/" | relURL }}">یادداشت‌ها</a>
+      <a href="{{ "stories/" | relURL }}">داستان‌ها</a>
+      <a href="{{ "about/" | relURL }}">درباره من</a>
+    </div>
+  </details>
+</nav>

@@ -1,31 +1,82 @@
 {{ define "main" }}
+
   {{ if eq .Section "posts" }}
-    <nav aria-label="مسیر صفحه">
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+
       <a href="{{ .Site.Home.RelPermalink }}">خانه</a>
+
       <span aria-hidden="true">/</span>
-      <a href="{{ "posts/" | relURL }}">مقالات</a>
-      <span aria-hidden="true">/</span>
+
+      {{ with .CurrentSection }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span aria-hidden="true">/</span>
+      {{ end }}
+
       <span aria-current="page">{{ .Title }}</span>
+
     </nav>
   {{ end }}
 
-  <article>
-    <header>
+  <article
+    class="article article-font-{{ or .Params.font "vazirmatn" }} article-size-{{ or .Params.textSize "normal" }}"
+  >
+
+    <header class="article-header">
+
+      {{ with .Params.contentType }}
+        <div class="post-card-type">
+          {{ if eq . "poems" }}
+            شعر
+          {{ else if eq . "notes" }}
+            یادداشت
+          {{ else if eq . "stories" }}
+            داستان
+          {{ end }}
+        </div>
+      {{ end }}
+
       <h1>{{ .Title }}</h1>
 
-      {{ with .Date }}
-        <p>
+      {{ with .Params.cover }}
+        <figure class="article-cover">
+          <img
+            src="{{ . | relURL }}"
+            alt="{{ or $.Params.cover_alt $.Title }}"
+            loading="eager"
+            decoding="async"
+          >
+        </figure>
+      {{ end }}
+
+      <div class="article-meta">
+
+        {{ with .Date }}
           <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Format "2006/01/02" }}
+            {{ partial "functions/persian-date.html" . }}
+          </time>
+        {{ end }}
+
+        {{ with .Params.author }}
+          <span> · نویسنده: {{ . }}</span>
+        {{ end }}
+
+      </div>
+
+      {{ with .Lastmod }}
+        <p class="article-meta">
+          آخرین ویرایش:
+          <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ partial "functions/persian-date.html" . }}
           </time>
         </p>
       {{ end }}
 
-      {{ with .Params.author }}
-        <p>نویسنده: {{ . }}</p>
-      {{ end }}
     </header>
 
-    {{ .Content }}
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+
   </article>
+
 {{ end }}

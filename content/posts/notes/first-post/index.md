@@ -1,5 +1,6 @@
 ---
 title: "اولین مقاله"
+contentType: notes
 slug: "first-post"
 description: "این یک مقاله آزمایشی برای بررسی ساختار محتوای وبلاگ است."
 summary: "اولین مقاله آزمایشی وبلاگ برای تست Hugo و ساختار URL."

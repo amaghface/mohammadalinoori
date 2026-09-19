@@ -21,7 +21,7 @@ pagination:
 
 permalinks:
   page:
-    posts: /posts/:slug/
+    posts: /:sectionslugs[last]/:slug/
   section:
     posts: /posts/
 
@@ -47,3 +47,4 @@ params:
   description: "وبلاگ محمدعلی نوری؛ نوشته‌ها، یادداشت‌ها و مطالب آموزشی."
   author:
     name: "محمدعلی نوری"
+  homePosts: 6

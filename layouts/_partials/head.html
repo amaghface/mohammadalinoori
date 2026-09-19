@@ -57,4 +57,19 @@
   {{- end -}}
 {{- end -}}
 
+{{- with resources.Get "css/main.css" -}}
+  {{- $css := dict
+    "minify" true
+    "sourceMap" "none"
+  -}}
+  {{- with . | css.Build $css | fingerprint -}}
+    <link
+      rel="stylesheet"
+      href="{{ .RelPermalink }}"
+      integrity="{{ .Data.Integrity }}"
+      crossorigin="anonymous"
+    >
+  {{- end -}}
+{{- end -}}
+
 {{ partial "schema.html" . }}
