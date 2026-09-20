@@ -17,7 +17,7 @@ content:
   - name: posts
     label: نوشته‌ها
     type: collection
-    path: content/posts
+    path: content
     format: yaml-frontmatter
     subfolders: true
     exclude:
