@@ -12,7 +12,7 @@
     {{ end }}
   </header>
 
-  {{ $posts := .RegularPagesRecursive }}
+  {{ $posts := where .Site.RegularPages "Section" .Section }}
   {{ $posts = $posts.ByDate.Reverse }}
 
   {{ if $posts }}
@@ -36,7 +36,11 @@
         <article class="post-item">
 
           {{ with .Params.cover }}
-            <a class="post-item-media" href="{{ $.RelPermalink }}">
+            <a
+              class="post-item-media"
+              href="{{ $.RelPermalink }}"
+              aria-label="مشاهده {{ $.Title }}"
+            >
               <img
                 src="{{ . | relURL }}"
                 alt="{{ or $.Params.cover_alt $.Title }}"
