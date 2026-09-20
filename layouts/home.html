@@ -9,7 +9,12 @@
 
   {{ $homePosts := int (default 6 .Site.Params.homePosts) }}
 
-  {{ $posts := where .Site.RegularPages "Section" "in" (slice "poems" "notes" "stories") }}
+  {{ $poems := where .Site.RegularPages "Params.contentType" "poems" }}
+  {{ $notes := where .Site.RegularPages "Params.contentType" "notes" }}
+  {{ $stories := where .Site.RegularPages "Params.contentType" "stories" }}
+
+  {{ $posts := union $poems $notes }}
+  {{ $posts = union $posts $stories }}
   {{ $posts = $posts.ByDate.Reverse }}
   {{ $posts = first $homePosts $posts }}
 
