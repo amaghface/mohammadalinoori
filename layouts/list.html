@@ -12,7 +12,7 @@
     {{ end }}
   </header>
 
-  {{ $posts := where .Site.RegularPages "Params.contentType" .Section }}
+  {{ $posts := .RegularPages }}
   {{ $posts = $posts.ByDate.Reverse }}
 
   {{ if $posts }}
