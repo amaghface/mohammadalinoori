@@ -6,7 +6,7 @@ textSize: normal
 slug: گلوی آهو
 description: هیچ
 summary: تست
-date: 2026-09-21T01:54:00Z
+date: 2026-09-19T01:54:00Z
 lastmod: 2026-09-21T01:54:00Z
 draft: false
 author: محمد علی‌نوری
