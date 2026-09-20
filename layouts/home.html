@@ -1,94 +1,95 @@
 {{ define "main" }}
 
-  <section aria-labelledby="latest-posts-title">
+<section aria-labelledby="latest-posts-title">
 
-    <header class="page-header">
-      <h1 id="latest-posts-title">آخرین نوشته‌ها</h1>
-      <p>{{ .Site.Params.description }}</p>
-    </header>
+  <header class="page-header">
+    <h1 id="latest-posts-title">آخرین نوشته‌ها</h1>
+    <p>{{ .Site.Params.description }}</p>
+  </header>
 
-    {{ $homePosts := int (default 6 .Site.Params.homePosts) }}
-    {{ $posts := where .Site.RegularPages "Section" "posts" }}
-    {{ $posts = $posts.ByDate.Reverse }}
-    {{ $posts = first $homePosts $posts }}
+  {{ $homePosts := int (default 6 .Site.Params.homePosts) }}
 
-    {{ if $posts }}
+  {{ $posts := where .Site.RegularPages "Section" "in" (slice "poems" "notes" "stories") }}
+  {{ $posts = $posts.ByDate.Reverse }}
+  {{ $posts = first $homePosts $posts }}
 
-      <div class="posts-grid">
+  {{ if $posts }}
 
-        {{ range $posts }}
+    <div class="posts-grid">
 
-          {{ $typeLabel := "" }}
+      {{ range $posts }}
 
-          {{ with .Params.contentType }}
-            {{ if eq . "poems" }}
-              {{ $typeLabel = "شعر" }}
-            {{ else if eq . "notes" }}
-              {{ $typeLabel = "یادداشت" }}
-            {{ else if eq . "stories" }}
-              {{ $typeLabel = "داستان" }}
-            {{ end }}
+        {{ $typeLabel := "" }}
+
+        {{ with .Params.contentType }}
+          {{ if eq . "poems" }}
+            {{ $typeLabel = "شعر" }}
+          {{ else if eq . "notes" }}
+            {{ $typeLabel = "یادداشت" }}
+          {{ else if eq . "stories" }}
+            {{ $typeLabel = "داستان" }}
           {{ end }}
-
-          <article class="post-card">
-
-            {{ with .Params.cover }}
-              <a
-                class="post-card-media"
-                href="{{ $.RelPermalink }}"
-                aria-label="مشاهده {{ $.Title }}"
-              >
-                <img
-                  src="{{ . | relURL }}"
-                  alt="{{ or $.Params.cover_alt $.Title }}"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </a>
-            {{ end }}
-
-            <div class="post-card-content">
-
-              {{ with $typeLabel }}
-                <div class="post-card-type">
-                  {{ . }}
-                </div>
-              {{ end }}
-
-              {{ with .Date }}
-                <p class="post-card-date">
-                  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-                    {{ partial "functions/persian-date.html" . }}
-                  </time>
-                </p>
-              {{ end }}
-
-              <h2>
-                <a href="{{ .RelPermalink }}">
-                  {{ .Title }}
-                </a>
-              </h2>
-
-              {{ with .Summary }}
-                <p class="post-card-summary">
-                  {{ . | plainify }}
-                </p>
-              {{ end }}
-
-            </div>
-
-          </article>
-
         {{ end }}
 
-      </div>
+        <article class="post-card">
 
-    {{ else }}
+          {{ with .Params.cover }}
+            <a
+              class="post-card-media"
+              href="{{ $.RelPermalink }}"
+              aria-label="مشاهده {{ $.Title }}"
+            >
+              <img
+                src="{{ . | relURL }}"
+                alt="{{ or $.Params.cover_alt $.Title }}"
+                loading="lazy"
+                decoding="async"
+              >
+            </a>
+          {{ end }}
 
-      <p>هنوز نوشته‌ای منتشر نشده است.</p>
+          <div class="post-card-content">
 
-    {{ end }}
+            {{ with $typeLabel }}
+              <div class="post-card-type">
+                {{ . }}
+              </div>
+            {{ end }}
 
-  </section>
+            {{ with .Date }}
+              <p class="post-card-date">
+                <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+                  {{ partial "functions/persian-date.html" . }}
+                </time>
+              </p>
+            {{ end }}
+
+            <h2>
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
+            </h2>
+
+            {{ with .Summary }}
+              <p class="post-card-summary">
+                {{ . | plainify }}
+              </p>
+            {{ end }}
+
+          </div>
+
+        </article>
+
+      {{ end }}
+
+    </div>
+
+  {{ else }}
+
+    <p>هنوز نوشته‌ای منتشر نشده است.</p>
+
+  {{ end }}
+
+</section>
 
 {{ end }}
