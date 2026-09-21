@@ -230,6 +230,19 @@ content:
         options:
           maxlength: 160
 
+      - name: textAlign
+        label: تراز متن
+        type: select
+        default: right
+        options:
+          values:
+            - name: right
+              label: راست‌چین
+            - name: left
+              label: چپ‌چین
+            - name: justify
+              label: جاستیفای
+
       - name: body
         label: متن درباره من
         type: rich-text
