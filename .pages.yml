@@ -14,188 +14,555 @@ media:
     rename: safe
 
 content:
+
   - name: posts
-    label: نوشته‌ها
-    type: collection
-    path: content
-    format: yaml-frontmatter
-    subfolders: true
-    exclude:
-      - "_index.md"
-    filename: "{fields.contentType}/{fields.slug}/index.md"
+    label: مطالب
+    type: group
 
-    view:
-      layout: list
-      primary: title
-      fields:
-        - title
-        - date
-        - categories
-        - tags
-        - draft
-      sort:
-        - date
-      default:
-        sort: date
-        order: desc
-      search:
-        - title
-        - description
-        - tags
+    items:
 
-    fields:
-      - name: title
-        label: عنوان
-        type: string
-        required: true
-        options:
-          maxlength: 120
+      - name: poems
+        label: اشعار
+        type: collection
+        path: content/poems
+        format: yaml-frontmatter
+        subfolders: true
+        exclude:
+          - "_index.md"
+        filename: "{fields.slug}/index.md"
 
-      - name: contentType
-        label: نوع مطلب
-        type: select
-        required: true
-        options:
-          values:
-            - name: poems
-              label: شعر
-            - name: notes
-              label: یادداشت
-            - name: stories
-              label: داستان
+        view:
+          layout: list
+          primary: title
+          fields:
+            - title
+            - date
+            - categories
+            - tags
+            - draft
+          sort:
+            - date
+          default:
+            sort: date
+            order: desc
+          search:
+            - title
+            - description
+            - tags
 
-      - name: font
-        label: فونت مطلب
-        type: select
-        required: true
-        options:
-          values:
-            - name: vazirmatn
-              label: وزیرمتن
-            - name: estedad
-              label: استعداد
-            - name: sahel
-              label: ساحل
+        fields:
 
-      - name: textSize
-        label: اندازه متن
-        type: select
-        required: true
-        options:
-          values:
-            - name: normal
-              label: معمولی
-            - name: large
-              label: بزرگ
-            - name: xlarge
-              label: خیلی بزرگ
+          - name: title
+            label: عنوان
+            type: string
+            required: true
+            options:
+              maxlength: 120
 
-      - name: textAlign
-        label: تراز متن
-        type: select
-        options:
-          values:
-            - name: right
-              label: راست‌چین
-            - name: left
-              label: چپ‌چین
-            - name: justify
-              label: جاستیفای
+          - name: contentType
+            label: نوع مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: poems
+                  label: شعر
 
-      - name: slug
-        label: نامک URL
-        type: string
-        required: true
-        description: "برای URL از حروف انگلیسی کوچک، عدد و خط تیره استفاده کن."
-        options:
-          minlength: 3
-          maxlength: 80
+          - name: font
+            label: فونت مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: vazirmatn
+                  label: وزیرمتن
+                - name: estedad
+                  label: استعداد
+                - name: sahel
+                  label: ساحل
 
-      - name: description
-        label: توضیحات SEO
-        type: text
-        required: true
-        options:
-          maxlength: 160
+          - name: textSize
+            label: اندازه متن
+            type: select
+            required: true
+            options:
+              values:
+                - name: normal
+                  label: معمولی
+                - name: large
+                  label: بزرگ
+                - name: xlarge
+                  label: خیلی بزرگ
 
-      - name: summary
-        label: خلاصه
-        type: text
-        options:
-          maxlength: 280
+          - name: textAlign
+            label: تراز متن
+            type: select
+            options:
+              values:
+                - name: right
+                  label: راست‌چین
+                - name: left
+                  label: چپ‌چین
+                - name: justify
+                  label: جاستیفای
 
-      - name: date
-        label: تاریخ انتشار
-        type: date
-        required: true
-        options:
-          time: true
-          format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+          - name: slug
+            label: نامک URL
+            type: string
+            required: true
+            description: "برای URL از حروف انگلیسی کوچک، عدد و خط تیره استفاده کن."
+            options:
+              minlength: 3
+              maxlength: 80
 
-      - name: lastmod
-        label: تاریخ آخرین ویرایش
-        type: date
-        options:
-          time: true
-          format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+          - name: description
+            label: توضیحات SEO
+            type: text
+            required: true
+            options:
+              maxlength: 160
 
-      - name: draft
-        label: پیش‌نویس
-        type: boolean
-        default: true
+          - name: summary
+            label: خلاصه
+            type: text
+            options:
+              maxlength: 280
 
-      - name: author
-        label: نویسنده
-        type: string
-        required: true
-        default: "محمد علی‌نوری"
+          - name: date
+            label: تاریخ انتشار
+            type: date
+            required: true
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
 
-      - name: categories
-        label: دسته‌بندی‌ها
-        type: string
-        list: true
+          - name: lastmod
+            label: تاریخ آخرین ویرایش
+            type: date
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
 
-      - name: tags
-        label: برچسب‌ها
-        type: string
-        list: true
+          - name: draft
+            label: پیش‌نویس
+            type: boolean
+            default: true
 
-      - name: cover
-        label: تصویر کاور
-        type: image
-        options:
-          media: images
-          path: media/posts
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
-            - avif
-          rename: safe
+          - name: author
+            label: نویسنده
+            type: string
+            required: true
+            default: "محمد علی‌نوری"
 
-      - name: cover_alt
-        label: متن جایگزین تصویر کاور
-        type: string
-        description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
-        options:
-          maxlength: 160
+          - name: categories
+            label: دسته‌بندی‌ها
+            type: string
+            list: true
 
-      - name: body
-        label: متن نوشته
-        type: rich-text
-        options:
-          format: markdown
-          media: images
-          path: media/posts
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
-            - avif
-          rename: safe
-          switcher: true
+          - name: tags
+            label: برچسب‌ها
+            type: string
+            list: true
+
+          - name: cover
+            label: تصویر کاور
+            type: image
+            options:
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+
+          - name: cover_alt
+            label: متن جایگزین تصویر کاور
+            type: string
+            description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
+            options:
+              maxlength: 160
+
+          - name: body
+            label: متن نوشته
+            type: rich-text
+            options:
+              format: markdown
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+              switcher: true
+
+
+      - name: notes
+        label: یادداشت‌ها
+        type: collection
+        path: content/notes
+        format: yaml-frontmatter
+        subfolders: true
+        exclude:
+          - "_index.md"
+        filename: "{fields.slug}/index.md"
+
+        view:
+          layout: list
+          primary: title
+          fields:
+            - title
+            - date
+            - categories
+            - tags
+            - draft
+          sort:
+            - date
+          default:
+            sort: date
+            order: desc
+          search:
+            - title
+            - description
+            - tags
+
+        fields:
+
+          - name: title
+            label: عنوان
+            type: string
+            required: true
+            options:
+              maxlength: 120
+
+          - name: contentType
+            label: نوع مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: notes
+                  label: یادداشت
+
+          - name: font
+            label: فونت مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: vazirmatn
+                  label: وزیرمتن
+                - name: estedad
+                  label: استعداد
+                - name: sahel
+                  label: ساحل
+
+          - name: textSize
+            label: اندازه متن
+            type: select
+            required: true
+            options:
+              values:
+                - name: normal
+                  label: معمولی
+                - name: large
+                  label: بزرگ
+                - name: xlarge
+                  label: خیلی بزرگ
+
+          - name: textAlign
+            label: تراز متن
+            type: select
+            options:
+              values:
+                - name: right
+                  label: راست‌چین
+                - name: left
+                  label: چپ‌چین
+                - name: justify
+                  label: جاستیفای
+
+          - name: slug
+            label: نامک URL
+            type: string
+            required: true
+            description: "برای URL از حروف انگلیسی کوچک، عدد و خط تیره استفاده کن."
+            options:
+              minlength: 3
+              maxlength: 80
+
+          - name: description
+            label: توضیحات SEO
+            type: text
+            required: true
+            options:
+              maxlength: 160
+
+          - name: summary
+            label: خلاصه
+            type: text
+            options:
+              maxlength: 280
+
+          - name: date
+            label: تاریخ انتشار
+            type: date
+            required: true
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+
+          - name: lastmod
+            label: تاریخ آخرین ویرایش
+            type: date
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+
+          - name: draft
+            label: پیش‌نویس
+            type: boolean
+            default: true
+
+          - name: author
+            label: نویسنده
+            type: string
+            required: true
+            default: "محمد علی‌نوری"
+
+          - name: categories
+            label: دسته‌بندی‌ها
+            type: string
+            list: true
+
+          - name: tags
+            label: برچسب‌ها
+            type: string
+            list: true
+
+          - name: cover
+            label: تصویر کاور
+            type: image
+            options:
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+
+          - name: cover_alt
+            label: متن جایگزین تصویر کاور
+            type: string
+            description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
+            options:
+              maxlength: 160
+
+          - name: body
+            label: متن نوشته
+            type: rich-text
+            options:
+              format: markdown
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+              switcher: true
+
+
+      - name: stories
+        label: داستان‌ها
+        type: collection
+        path: content/stories
+        format: yaml-frontmatter
+        subfolders: true
+        exclude:
+          - "_index.md"
+        filename: "{fields.slug}/index.md"
+
+        view:
+          layout: list
+          primary: title
+          fields:
+            - title
+            - date
+            - categories
+            - tags
+            - draft
+          sort:
+            - date
+          default:
+            sort: date
+            order: desc
+          search:
+            - title
+            - description
+            - tags
+
+        fields:
+
+          - name: title
+            label: عنوان
+            type: string
+            required: true
+            options:
+              maxlength: 120
+
+          - name: contentType
+            label: نوع مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: stories
+                  label: داستان
+
+          - name: font
+            label: فونت مطلب
+            type: select
+            required: true
+            options:
+              values:
+                - name: vazirmatn
+                  label: وزیرمتن
+                - name: estedad
+                  label: استعداد
+                - name: sahel
+                  label: ساحل
+
+          - name: textSize
+            label: اندازه متن
+            type: select
+            required: true
+            options:
+              values:
+                - name: normal
+                  label: معمولی
+                - name: large
+                  label: بزرگ
+                - name: xlarge
+                  label: خیلی بزرگ
+
+          - name: textAlign
+            label: تراز متن
+            type: select
+            options:
+              values:
+                - name: right
+                  label: راست‌چین
+                - name: left
+                  label: چپ‌چین
+                - name: justify
+                  label: جاستیفای
+
+          - name: slug
+            label: نامک URL
+            type: string
+            required: true
+            description: "برای URL از حروف انگلیسی کوچک، عدد و خط تیره استفاده کن."
+            options:
+              minlength: 3
+              maxlength: 80
+
+          - name: description
+            label: توضیحات SEO
+            type: text
+            required: true
+            options:
+              maxlength: 160
+
+          - name: summary
+            label: خلاصه
+            type: text
+            options:
+              maxlength: 280
+
+          - name: date
+            label: تاریخ انتشار
+            type: date
+            required: true
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+
+          - name: lastmod
+            label: تاریخ آخرین ویرایش
+            type: date
+            options:
+              time: true
+              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+
+          - name: draft
+            label: پیش‌نویس
+            type: boolean
+            default: true
+
+          - name: author
+            label: نویسنده
+            type: string
+            required: true
+            default: "محمد علی‌نوری"
+
+          - name: categories
+            label: دسته‌بندی‌ها
+            type: string
+            list: true
+
+          - name: tags
+            label: برچسب‌ها
+            type: string
+            list: true
+
+          - name: cover
+            label: تصویر کاور
+            type: image
+            options:
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+
+          - name: cover_alt
+            label: متن جایگزین تصویر کاور
+            type: string
+            description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
+            options:
+              maxlength: 160
+
+          - name: body
+            label: متن نوشته
+            type: rich-text
+            options:
+              format: markdown
+              media: images
+              path: media/posts
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+                - avif
+              rename: safe
+              switcher: true
+
 
   - name: about
     label: درباره من
@@ -207,6 +574,7 @@ content:
       delete: false
 
     fields:
+
       - name: title
         label: عنوان
         type: string
