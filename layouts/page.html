@@ -37,6 +37,22 @@
 
       <h1>{{ .Title }}</h1>
 
+      {{ with .Params.image }}
+        <figure
+          class="about-profile-image"
+          style="width: min(100%, 240px); margin: 1.5rem auto;"
+        >
+          <img
+            src="{{ . | relURL }}"
+            alt="{{ or $.Params.image_alt $.Title }}"
+            width="240"
+            style="display: block; width: 100%; height: auto;"
+            loading="eager"
+            decoding="async"
+          >
+        </figure>
+      {{ end }}
+
       {{ with .Params.cover }}
         <figure class="article-cover">
           <img
