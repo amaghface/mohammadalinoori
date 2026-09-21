@@ -233,7 +233,6 @@ content:
       - name: textAlign
         label: تراز متن
         type: select
-        default: right
         options:
           values:
             - name: right
