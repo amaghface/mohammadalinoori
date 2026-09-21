@@ -90,6 +90,18 @@ content:
             - name: xlarge
               label: خیلی بزرگ
 
+      - name: textAlign
+        label: تراز متن
+        type: select
+        options:
+          values:
+            - name: right
+              label: راست‌چین
+            - name: left
+              label: چپ‌چین
+            - name: justify
+              label: جاستیفای
+
       - name: slug
         label: نامک URL
         type: string
