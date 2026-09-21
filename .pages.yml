@@ -50,7 +50,7 @@ content:
         required: true
         options:
           maxlength: 120
-          
+
       - name: contentType
         label: نوع مطلب
         type: select
@@ -63,6 +63,7 @@ content:
               label: یادداشت
             - name: stories
               label: داستان
+
       - name: font
         label: فونت مطلب
         type: select
@@ -75,6 +76,7 @@ content:
               label: استعداد
             - name: sahel
               label: ساحل
+
       - name: textSize
         label: اندازه متن
         type: select
@@ -87,6 +89,7 @@ content:
               label: بزرگ
             - name: xlarge
               label: خیلی بزرگ
+
       - name: slug
         label: نامک URL
         type: string
@@ -181,7 +184,68 @@ content:
             - avif
           rename: safe
           switcher: true
-          
+
+  - name: about
+    label: درباره من
+    type: file
+    path: content/about.md
+    format: yaml-frontmatter
+
+    operations:
+      delete: false
+
+    fields:
+      - name: title
+        label: عنوان
+        type: string
+        required: true
+        options:
+          maxlength: 120
+
+      - name: description
+        label: توضیحات SEO
+        type: text
+        required: true
+        options:
+          maxlength: 160
+
+      - name: image
+        label: تصویر محمد علی‌نوری
+        type: image
+        options:
+          media: images
+          path: media/posts
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+            - avif
+          rename: safe
+
+      - name: image_alt
+        label: متن جایگزین تصویر
+        type: string
+        description: "توضیح کوتاه و دقیق برای تصویر؛ برای دسترسی‌پذیری و SEO."
+        options:
+          maxlength: 160
+
+      - name: body
+        label: متن درباره من
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+          path: media/posts
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+            - avif
+          rename: safe
+          switcher: true
+
 settings:
   content:
     merge: true
