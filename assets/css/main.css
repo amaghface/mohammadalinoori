@@ -205,7 +205,7 @@ summary:focus-visible {
 
 .page-header h1 {
   margin: 0 0 0.5rem;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
   line-height: 1.25;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -287,7 +287,7 @@ summary:focus-visible {
 
 .post-card h2 {
   margin: 0;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: clamp(0.575rem, 1vw, 0.725rem);
   line-height: 1.4;
 }
 
@@ -324,7 +324,7 @@ summary:focus-visible {
 
 .post-item h2 {
   margin: 0;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: clamp(0.575rem, 1vw, 0.725rem);
   line-height: 1.4;
 }
 
@@ -356,7 +356,7 @@ summary:focus-visible {
 
 .article-header h1 {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
   line-height: 1.3;
 }
 
