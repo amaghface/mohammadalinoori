@@ -9,7 +9,7 @@ description: تست نهایی
 summary: تست شود شعر
 date: 2026-09-22T14:07:00Z
 lastmod: 2026-09-22T14:07:00Z
-draft: true
+draft: false
 author: محمد علی‌نوری
 tags:
   - شعر
