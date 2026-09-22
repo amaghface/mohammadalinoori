@@ -39,7 +39,6 @@ content:
             - date
             - categories
             - tags
-            - draft
           sort:
             - date
           default:
@@ -134,19 +133,14 @@ content:
             required: true
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: lastmod
             label: تاریخ آخرین ویرایش
             type: date
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
-
-          - name: draft
-            label: پیش‌نویس
-            type: boolean
-            default: true
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: author
             label: نویسنده
@@ -220,7 +214,6 @@ content:
             - date
             - categories
             - tags
-            - draft
           sort:
             - date
           default:
@@ -315,19 +308,14 @@ content:
             required: true
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: lastmod
             label: تاریخ آخرین ویرایش
             type: date
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
-
-          - name: draft
-            label: پیش‌نویس
-            type: boolean
-            default: true
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: author
             label: نویسنده
@@ -401,7 +389,6 @@ content:
             - date
             - categories
             - tags
-            - draft
           sort:
             - date
           default:
@@ -496,19 +483,14 @@ content:
             required: true
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: lastmod
             label: تاریخ آخرین ویرایش
             type: date
             options:
               time: true
-              format: "yyyy-MM-dd'T'HH:mm:ssXXX"
-
-          - name: draft
-            label: پیش‌نویس
-            type: boolean
-            default: true
+              format: "yyyy-MM-dd'T'HH:mm:ss"
 
           - name: author
             label: نویسنده
