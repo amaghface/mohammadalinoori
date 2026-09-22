@@ -7,8 +7,8 @@ textAlign: justify
 slug: poem
 description: تست نهایی
 summary: تست شود شعر
-date: 2026-09-22T14:07:00Z
-lastmod: 2026-09-22T14:07:00Z
+date: 2026-09-20T14:07:00Z
+lastmod: 2026-09-20T14:07:00Z
 draft: false
 author: محمد علی‌نوری
 tags:
