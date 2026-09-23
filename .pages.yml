@@ -2,7 +2,7 @@ media:
   - name: images
     label: تصاویر
     input: static/media/posts
-    output: /mohammadalinoori/media/posts
+    output: /media/posts
     categories:
       - image
     extensions:
