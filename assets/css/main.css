@@ -236,6 +236,14 @@ summary:focus-visible {
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
+.post-card-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
 .post-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.09);
