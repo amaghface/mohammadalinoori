@@ -224,6 +224,29 @@ summary:focus-visible {
   align-items: stretch;
 }
 
+.older-posts-link {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.older-posts-link a {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-color);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.older-posts-link a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
 .post-card {
   min-width: 0;
   display: flex;
