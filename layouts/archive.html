@@ -1,0 +1,106 @@
+{{ define "main" }}
+
+<section aria-labelledby="archive-title">
+
+  <header class="page-header">
+    <h1 id="archive-title">{{ .Title }}</h1>
+  </header>
+
+  {{ $homePosts := int (default 8 .Site.Params.homePosts) }}
+
+  {{ $poems := where .Site.RegularPages "Params.contentType" "poems" }}
+  {{ $notes := where .Site.RegularPages "Params.contentType" "notes" }}
+  {{ $stories := where .Site.RegularPages "Params.contentType" "stories" }}
+
+  {{ $posts := union $poems $notes }}
+  {{ $posts = union $posts $stories }}
+  {{ $posts = $posts.ByDate.Reverse }}
+
+  {{ $olderPosts := after $homePosts $posts }}
+
+  {{ if $olderPosts }}
+
+    <div class="posts-grid">
+
+      {{ range $olderPosts }}
+
+        {{ $typeLabel := "" }}
+
+        {{ with .Params.contentType }}
+          {{ if eq . "poems" }}
+            {{ $typeLabel = "شعر" }}
+          {{ else if eq . "notes" }}
+            {{ $typeLabel = "یادداشت" }}
+          {{ else if eq . "stories" }}
+            {{ $typeLabel = "داستان" }}
+          {{ end }}
+        {{ end }}
+
+        <article class="post-card">
+
+          <a
+            class="post-card-link"
+            href="{{ .RelPermalink }}"
+            aria-label="مشاهده {{ .Title }}"
+          >
+
+            {{ with .Params.cover }}
+              <div class="post-card-media">
+                <img
+                  src="{{ . | relURL }}"
+                  alt="{{ or $.Params.cover_alt $.Title }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            {{ end }}
+
+            <div class="post-card-content">
+
+              {{ with $typeLabel }}
+                <div class="post-card-type">
+                  {{ . }}
+                </div>
+              {{ end }}
+
+              {{ with .Date }}
+                <p class="post-card-date">
+                  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ partial "functions/persian-date.html" . }}
+                  </time>
+                </p>
+              {{ end }}
+
+              <h2>
+                {{ .Title }}
+              </h2>
+
+              {{ with .Summary }}
+                <p class="post-card-summary">
+                  {{ . | plainify }}
+                </p>
+              {{ end }}
+
+            </div>
+
+          </a>
+
+        </article>
+
+      {{ end }}
+
+    </div>
+
+  {{ else }}
+
+    <p>نوشتهٔ قدیمی‌تری وجود ندارد.</p>
+
+  {{ end }}
+
+  <div class="older-posts-link">
+    <a href="{{ "/" | relURL }}">نوشته‌های جدیدتر</a>
+  </div>
+
+</section>
+
+{{ end }}
