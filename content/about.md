@@ -1,7 +1,7 @@
 ---
 title: جست‌وجوی من
 description: درباره محمد علی‌نوری، شاعر و نویسنده.
-image: /mohammadalinoori/media/posts/mohammadalinoori.png
+image: /media/posts/mohammadalinoori.png
 image_alt: محمد علی‌نوری
 textAlign: justify
 ---
