@@ -91,6 +91,12 @@
 
     </div>
 
+  {{ if gt (len (union (union (where .Site.RegularPages "Params.contentType" "poems") (where .Site.RegularPages "Params.contentType" "notes")) (where .Site.RegularPages "Params.contentType" "stories"))) $homePosts }}
+  <div class="older-posts-link">
+    <a href="{{ "archive/" | relURL }}">نوشته‌های قدیمی‌تر</a>
+  </div>
+{{ end }}
+
   {{ else }}
 
     <p>هنوز نوشته‌ای منتشر نشده است.</p>
