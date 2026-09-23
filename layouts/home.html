@@ -38,50 +38,52 @@
 
         <article class="post-card">
 
-          {{ with .Params.cover }}
-            <a
-              class="post-card-media"
-              href="{{ $.RelPermalink }}"
-              aria-label="مشاهده {{ $.Title }}"
-            >
-              <img
-                src="{{ . | relURL }}"
-                alt="{{ or $.Params.cover_alt $.Title }}"
-                loading="lazy"
-                decoding="async"
-              >
-            </a>
-          {{ end }}
+          <a
+            class="post-card-link"
+            href="{{ .RelPermalink }}"
+            aria-label="مشاهده {{ .Title }}"
+          >
 
-          <div class="post-card-content">
-
-            {{ with $typeLabel }}
-              <div class="post-card-type">
-                {{ . }}
+            {{ with .Params.cover }}
+              <div class="post-card-media">
+                <img
+                  src="{{ . | relURL }}"
+                  alt="{{ or $.Params.cover_alt $.Title }}"
+                  loading="lazy"
+                  decoding="async"
+                >
               </div>
             {{ end }}
 
-            {{ with .Date }}
-              <p class="post-card-date">
-                <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-                  {{ partial "functions/persian-date.html" . }}
-                </time>
-              </p>
-            {{ end }}
+            <div class="post-card-content">
 
-            <h2>
-              <a href="{{ .RelPermalink }}">
+              {{ with $typeLabel }}
+                <div class="post-card-type">
+                  {{ . }}
+                </div>
+              {{ end }}
+
+              {{ with .Date }}
+                <p class="post-card-date">
+                  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ partial "functions/persian-date.html" . }}
+                  </time>
+                </p>
+              {{ end }}
+
+              <h2>
                 {{ .Title }}
-              </a>
-            </h2>
+              </h2>
 
-            {{ with .Summary }}
-              <p class="post-card-summary">
-                {{ . | plainify }}
-              </p>
-            {{ end }}
+              {{ with .Summary }}
+                <p class="post-card-summary">
+                  {{ . | plainify }}
+                </p>
+              {{ end }}
 
-          </div>
+            </div>
+
+          </a>
 
         </article>
 
