@@ -16,13 +16,13 @@ media:
 content:
 
   - name: posts
-    label: مطالب
+    label: نوشته‌ها
     type: group
 
     items:
 
       - name: poems
-        label: اشعار
+        label: شعر
         type: collection
         path: content/poems
         format: yaml-frontmatter
@@ -197,7 +197,7 @@ content:
 
 
       - name: notes
-        label: یادداشت‌ها
+        label: یادداشت
         type: collection
         path: content/notes
         format: yaml-frontmatter
@@ -372,7 +372,7 @@ content:
 
 
       - name: stories
-        label: داستان‌ها
+        label: داستان
         type: collection
         path: content/stories
         format: yaml-frontmatter
