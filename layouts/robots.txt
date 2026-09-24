@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://amaghface.github.io/mohammadalinoori/sitemap.xml
+Sitemap: https://mohammadalinoori.ir/sitemap.xml
