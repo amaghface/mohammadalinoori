@@ -42,7 +42,7 @@ outputs:
     - html
 
 params:
-  description: "وبسایت محمد علی‌نوری؛ شعرها، داستان‌ها و یادداشت‌ها ."
+  description: "وبسایت محمد علی‌نوری؛ شعرها، داستان‌ها و یادداشت‌ها"
   author:
     name: "محمد علی‌نوری"
   homePosts: 8
