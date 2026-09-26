@@ -17,7 +17,7 @@ tags:
   - شعر
   - محمد علی‌نوری
   - پرنده اگر برگردیم و درخت نباشد چه
-cover: /media/posts/powell-3.jpg
+cover: /media/posts/parandehagar.webp
 cover_alt: شعر پرنده اگر برگردیم و درخت نباشد چه از محمد علی‌نوری
 ---
 پرنده اگر برگردیم و درخت نباشد چه؟
