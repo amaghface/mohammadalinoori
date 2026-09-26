@@ -17,7 +17,7 @@ tags:
   - محمد علی‌نوری
   - در ستایش تنهایی
   - تنهایی
-cover: /media/posts/images-1.jpeg
+cover: /media/posts/darsetayeshtanhaei.webp
 cover_alt: یادداشت در ستایش تنهایی از محمد علی‌نوری
 ---
 در ستایش تنهایی
