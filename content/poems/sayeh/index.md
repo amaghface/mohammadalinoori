@@ -17,7 +17,8 @@ tags:
   - شعر
   - سایه
   - محمد علی‌نوری
-cover: /media/posts/ilfullxfull33360598031qbh.webp
+cover: /media/posts/sayeh-1.webp
+cover_alt: شعر سایه از محمد علی‌نوری
 ---
 به سایه ای که ناگزیر است 
 
