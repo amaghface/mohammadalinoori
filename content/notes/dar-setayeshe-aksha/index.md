@@ -17,7 +17,7 @@ tags:
   - یادداشت
   - محمد علی‌نوری
   - عکس‌ها
-cover: /media/posts/darsetayeshaksha.jpg
+cover: /media/posts/darsetayeshaksha.webp
 cover_alt: در ستایش عکس‌ها - محمد علی‌نوری
 ---
 در ستایش عکس‌ها
