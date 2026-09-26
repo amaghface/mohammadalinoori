@@ -16,7 +16,7 @@ tags:
   - شعر
   - سکوت
   - محمد علی‌نوری
-cover: /media/posts/88224.jpg
+cover: /media/posts/88224.webp
 cover_alt: شعر سکوت از محمد علی‌نوری
 ---
 سکوت
