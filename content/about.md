@@ -18,4 +18,4 @@ textAlign: justify
 
 ارتباط با من:
 
-[MohammadAlinoori.ir@gmail.com](MohammadAlinoori.ir@gmail.com)
+MohammadAlinoori.ir@gmail.com
