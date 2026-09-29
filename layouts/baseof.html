@@ -25,10 +25,13 @@
     {{ block "main" . }}{{ end }}
   </main>
 
-  <footer class="site-footer">
-    <p>
-      © {{ now.Year }} {{ .Site.Title }}
-    </p>
-  </footer>
+<footer class="site-footer">
+  <p>
+    © {{ now.Year | replace "0" "۰" | replace "1" "۱" | replace "2" "۲" | replace "3" "۳" | replace "4" "۴" | replace "5" "۵" | replace "6" "۶" | replace "7" "۷" | replace "8" "۸" | replace "9" "۹" }}
+    <a href="{{ .Site.Home.RelPermalink }}" style="color: inherit; text-decoration: none;">
+      {{ .Site.Title }}
+    </a>
+  </p>
+</footer>
 </body>
 </html>
