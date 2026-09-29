@@ -7,6 +7,10 @@
     <p>آخرین یادداشت‌ها، داستان‌ها و اشعار محمد علی‌نوری {{ .Site.Params.description }}</p>
   </header>
 
+  <p>
+  در این صفحه، آخرین یادداشت‌ها، داستان‌ها و اشعار محمد علی‌نوری مولف کتاب پرنده اگر برگردیم را می‌خوانید.
+  </p>
+
   {{ $homePosts := int (default 6 .Site.Params.homePosts) }}
 
   {{ $poems := where .Site.RegularPages "Params.contentType" "poems" }}
