@@ -15,4 +15,4 @@ textAlign: justify
 
  ادبیات برای من همین جست‌وجوست: رفتن از معنای آشکار به معنای پنهان؛ از کلمه به کلمه، از نشانه به نشانه، تا جایی که دیگر ندانم مرز میان زبان و جهان کجاست...  
   
-ارتباط با من: MohammadAlinoori.ir@gmail.com
+ارتباط با من: [MohammadAlinoori.ir@gmail.com](MohammadAlinoori.ir@gmail.com)
