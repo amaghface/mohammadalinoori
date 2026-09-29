@@ -26,11 +26,24 @@
   </main>
 
 <footer class="site-footer">
+  {{- $year := printf "%d" now.Year -}}
+  {{- $year = replace $year "0" "۰" -}}
+  {{- $year = replace $year "1" "۱" -}}
+  {{- $year = replace $year "2" "۲" -}}
+  {{- $year = replace $year "3" "۳" -}}
+  {{- $year = replace $year "4" "۴" -}}
+  {{- $year = replace $year "5" "۵" -}}
+  {{- $year = replace $year "6" "۶" -}}
+  {{- $year = replace $year "7" "۷" -}}
+  {{- $year = replace $year "8" "۸" -}}
+  {{- $year = replace $year "9" "۹" -}}
+
   <p>
-    © {{ now.Year | replace "0" "۰" | replace "1" "۱" | replace "2" "۲" | replace "3" "۳" | replace "4" "۴" | replace "5" "۵" | replace "6" "۶" | replace "7" "۷" | replace "8" "۸" | replace "9" "۹" }}
-    <a href="{{ .Site.Home.RelPermalink }}" style="color: inherit; text-decoration: none;">
-      {{ .Site.Title }}
-    </a>
+    © {{ $year }}
+    <a
+      href="{{ .Site.Home.RelPermalink }}"
+      style="color: inherit; text-decoration: none;"
+    >{{ .Site.Title }}</a>
   </p>
 </footer>
 </body>
